@@ -1,0 +1,19 @@
+{
+    "data_path": "./data",
+    "batch_size": 10,
+    "pmc_base_ftp": "ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/",
+    "pmc_base_web": "https://www.ncbi.nlm.nih.gov/pmc/articles/",
+    "arxiv_base": "https://arxiv.org/pdf",
+    "unpaywall_base": "http://api.unpaywall.org/v2/",
+    "unpaywall_email": "",
+    "biblio_glutton_base": "http://cloud.science-miner.com/glutton",
+    "crossref_base": "https://api.crossref.org",
+    "crossref_email": "",
+    "legacy_data_path": "",
+    "aws_access_key_id": "",
+    "aws_secret_access_key": "",
+    "bucket_name": "",
+    "region": "",
+    "cord19_elsevier_map_path": "",
+    "cord19_elsevier_pdf_path": ""
+}
