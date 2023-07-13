@@ -1,0 +1,5 @@
+lmdb
+article-dataset-builder>=0.2.4
+# -e git+https://github.com/softcite/software_mentions_client.git#egg=software_mentions_client
+software_mentions_client>=0.1.7
+pandas
