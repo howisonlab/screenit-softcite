@@ -1,5 +1,5 @@
-lmdb
-article-dataset-builder>=0.2.4
+lmdb==1.4.1
+article-dataset-builder>=0.2.6
 # -e git+https://github.com/softcite/software_mentions_client.git#egg=software_mentions_client
-software_mentions_client>=0.1.7
+software_mentions_client>=0.1.8
 pandas
