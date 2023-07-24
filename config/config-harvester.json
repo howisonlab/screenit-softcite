@@ -15,5 +15,6 @@
     "bucket_name": "",
     "region": "",
     "cord19_elsevier_map_path": "",
-    "cord19_elsevier_pdf_path": ""
+    "cord19_elsevier_pdf_path": "",
+    "pub2tei_path": "./Pub2TEI"
 }

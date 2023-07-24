@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/devcontainers/python:3.10-bullseye
 # Install Java
 RUN apt update && \
     apt install -y sudo && \
-    sudo apt install default-jdk -y
+    sudo apt install default-jdk libffi-dev python-dev build-essential -y
 
 ## Pip dependencies
 # Upgrade pip
