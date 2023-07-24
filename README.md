@@ -25,3 +25,4 @@ cd workspaces
 python3 screen_it_pipeline.py
 ```
 
+The `.devcontainer` folder also contains a setup that works using dev containers on vscode.

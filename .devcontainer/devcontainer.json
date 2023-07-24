@@ -2,5 +2,8 @@
     "dockerComposeFile": "docker-compose-devcontainer.yml",
     "service": "client_software_mentions",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-    "initializeCommand": "echo repobasepath=${localWorkspaceFolderBasename} > .devcontainer/.env"
+    "initializeCommand": "echo repobasepath=${localWorkspaceFolderBasename} > .devcontainer/.env",
+    "extensions": [
+		"ms-toolsai.jupyter"
+	],
 }

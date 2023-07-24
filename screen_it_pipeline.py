@@ -24,9 +24,9 @@ harvester = Harverster(config_path="config/config-harvester.json", dump_metadata
 # nlm2tei.process()
 
 client = software_mentions_client(config_path="config/config-client.json")
-client.annotate_collection("./data", force=True)
+# client.annotate_collection("./data", force=True)
 
-harvester.diagnostic(full=True)
+# harvester.diagnostic(full=True)
 
 from pathlib import Path
 import pandas as pd
@@ -37,3 +37,11 @@ print(len(all_paths))
 software_paths = list(Path("./data").rglob("*.software.json"))
 print("Number of software.json files:")
 print(len(software_paths))
+
+from pathlib import Path
+import pandas as pd
+df = ( pd.DataFrame([pd.read_json(p, typ="series") for p in software_paths])
+      .filter(items = ["metadata", "mentions"])
+      .explode("mentions")
+      .to_csv("mentions_one_per_row.csv")
+)
