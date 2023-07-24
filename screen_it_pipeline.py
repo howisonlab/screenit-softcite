@@ -19,7 +19,8 @@ harvester = Harverster(config_path="config/config-harvester.json", dump_metadata
 
 # Not clear to me if the resulting tei.xml files are used by the client?
 # Running it is not idempotent, seems to repeat even if the tei.xml files are there?
-nlm2tei = Nlm2tei(config_path="config/config-harvester.json")
+# Also requires running: git clone https://github.com/kermitt2/Pub2TEI
+# nlm2tei = Nlm2tei(config_path="config/config-harvester.json")
 # nlm2tei.process()
 
 client = software_mentions_client(config_path="config/config-client.json")
@@ -31,7 +32,8 @@ from pathlib import Path
 import pandas as pd
 
 all_paths = list(Path("./data").rglob("*.pdf"))
+print("Number of PDF files:")
 print(len(all_paths))
 software_paths = list(Path("./data").rglob("*.software.json"))
-
+print("Number of software.json files:")
 print(len(software_paths))

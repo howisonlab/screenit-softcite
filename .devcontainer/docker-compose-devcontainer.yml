@@ -8,9 +8,9 @@ services:
     ports:
       - "8060:8060"
   client_software_mentions:
-    build: .
+    build: ..
     volumes:
-      - ".:/workspaces/${repobasepath}"
+      - "..:/workspaces/${repobasepath}"
     network_mode: service:server_software_mentions
     command: sleep infinity
     container_name: client_software_mentions

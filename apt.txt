@@ -1,4 +1,3 @@
-#liblmdb-dev
 default-jre
 libffi-dev
 python-dev
