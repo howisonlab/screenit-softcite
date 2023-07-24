@@ -1,5 +1,5 @@
 {
-    "software_mention_url": "https://cloud.science-miner.com/software",
+    "software_mention_url": "localhost:8060",
     "data_path": "./data",
     "batch_size": 50,
     "sleep_time": 1,

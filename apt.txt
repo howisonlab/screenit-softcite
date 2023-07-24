@@ -1,2 +1,5 @@
-liblmdb-dev
+#liblmdb-dev
 default-jre
+libffi-dev
+python-dev
+build-essential
