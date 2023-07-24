@@ -1,0 +1,16 @@
+# From:https://github.com/softcite/tutorials/blob/master/process_all_of_plos.md
+
+# docker pull grobid/software-mentions:0.8.0-SNAPSHOT
+# docker run --rm --gpus all -it -p 8060:8060 grobid/software-mentions:0.8.0-SNAPSHOT
+services:
+  server_software_mentions:
+    image: "grobid/software-mentions:0.8.0-SNAPSHOT"
+    ports:
+      - "8060:8060"
+  client_software_mentions:
+    build: .
+    volumes:
+      - "..:/workspaces/${repobasepath}"
+    network_mode: service:server_software_mentions
+    command: sleep infinity
+    

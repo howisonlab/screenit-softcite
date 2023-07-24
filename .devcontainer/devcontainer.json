@@ -1,6 +1,6 @@
 {
-    "build": {
-        "context": "..",
-        "dockerfile": "../Dockerfile" 
-    }
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "client_software_mentions",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "initializeCommand": "echo repobasepath=${localWorkspaceFolderBasename} > .devcontainer/.env"
 }
