@@ -41,14 +41,22 @@ print(len(software_paths))
 from pathlib import Path
 import pandas as pd
 import numpy as np
-df = ( pd.DataFrame([pd.read_json(p, typ="series") for p in software_paths])
-      .explode("mentions")
+
+# Store the .software.json path in case needed
+# I can't figure out the apply/map way to do this within a chain.
+df = pd.DataFrame()
+for filename in software_paths:
+      row_df = pd.DataFrame([pd.read_json(filename, typ="series")])
+      row_df['glob_filename'] = filename
+      df = pd.concat([df, row_df])
+
+(   df.explode("mentions")
       .assign(article_pmcid = lambda df_: df_.metadata.str['pmcid'],
               software_name = lambda df_: df_.mentions.str['software-name'].str['normalizedForm'],
               sentence_context = lambda df_: df_.mentions.str['context']
              )
-      .filter(axis = "columns", items = ['article_pmcid', 'software_name', 'sentence_context'])
-      .replace('', np.nan)
-      .dropna()
+      .filter(axis = "columns", items = ['article_pmcid', 'software_name', 'sentence_context', 'glob_filename'])
+  #    .replace('', np.nan)
+  #    .dropna()
       .to_csv("mentions_one_per_row.csv", index=False)
 )
