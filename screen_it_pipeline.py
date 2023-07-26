@@ -40,8 +40,15 @@ print(len(software_paths))
 
 from pathlib import Path
 import pandas as pd
+import numpy as np
 df = ( pd.DataFrame([pd.read_json(p, typ="series") for p in software_paths])
-      .filter(items = ["metadata", "mentions"])
       .explode("mentions")
-      .to_csv("mentions_one_per_row.csv")
+      .assign(article_pmcid = lambda df_: df_.metadata.str['pmcid'],
+              software_name = lambda df_: df_.mentions.str['software-name'].str['normalizedForm'],
+              sentence_context = lambda df_: df_.mentions.str['context']
+             )
+      .filter(axis = "columns", items = ['article_pmcid', 'software_name', 'sentence_context'])
+      .replace('', np.nan)
+      .dropna()
+      .to_csv("mentions_one_per_row.csv", index=False)
 )
